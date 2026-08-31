@@ -12,7 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.2.9"
+    "astro": "^7.2.9",
+    "@astrojs/cloudflare": "^12.9.2"
   },
   "allowScripts": {
     "esbuild": true
