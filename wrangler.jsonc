@@ -1,0 +1,17 @@
+{
+  // Stable wrangler config checked into the repo.
+  // The Astro Cloudflare adapter auto-generates dist/server/wrangler.json at build time;
+  // this root-level file lets `wrangler deploy` / `wrangler versions upload` work without
+  // hand-editing the generated file. Keep fields in sync with what the adapter produces.
+  "name": "astro-site",
+  "main": "dist/server/entry.mjs",
+  "compatibility_date": "2026-08-28",
+  "compatibility_flags": [],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "dist/client"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
