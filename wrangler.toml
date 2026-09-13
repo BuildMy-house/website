@@ -1,0 +1,16 @@
+# Cloudflare Pages configuration
+name = "website"
+type = "javascript"
+compatibility_date = "2026-08-28"
+
+# Build output for Pages
+[build]
+command = "npm run build"
+cwd = "./"
+root_dir = "dist"
+
+[env.production]
+name = "website-prod"
+routes = [
+  { pattern = "website.yourdomain.com/*", zone_name = "yourdomain.com" }
+]
