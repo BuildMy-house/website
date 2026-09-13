@@ -1,6 +1,12 @@
-# Homely Site
+# House Designer website
 
-This is the isolated workspace for Homely's public site.
+Astro marketing site for House Designer. It uses the minimal Astro runtime and Cloudflare's server adapter.
 
-Hermes is the founder/CEO and delegates implementation to OpenCode. Keep site
-code, tests, and launch notes in this folder.
+## Local development
+
+```sh
+npm install
+npm run dev
+```
+
+Open `http://localhost:4321`.
