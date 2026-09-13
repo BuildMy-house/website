@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://buildmy.house/sitemap.xml
+Sitemap: https://buildmy.house/diary/sitemap.xml
+
+Disallow: /api
+Disallow: /.env
+Disallow: *.json
