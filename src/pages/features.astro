@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Features">
+  <section class="page">
+    <span class="eyebrow">What you can do</span>
+    <h1>From idea to layout, without the blanks.</h1>
+    <p>House Designer gives you three things most early-stage design tools skip: a clean way to sketch, a way to see what the sketch means, and a way to hand it off without losing context.</p>
+
+    <div class="cards">
+      <article class="card">
+        <span class="number">PLAN</span>
+        <h3>Draw rooms that make sense</h3>
+        <p>Place walls, doors, and windows on a grid that respects real proportions. No measuring twice to catch a misaligned room — the plan stays honest as you edit.</p>
+      </article>
+      <article class="card">
+        <span class="number">SEE</span>
+        <h3>Walk through a living version</h3>
+        <p>Switch from a flat plan to a perspective view and see how light, proportion, and circulation actually feel. Spot problems that floorplans hide.</p>
+      </article>
+      <article class="card">
+        <span class="number">SHARE</span>
+        <h3>Show, don't explain</h3>
+        <p>Send a link instead of a PDF. Collaborators see the same plan, the same view, the same decisions — no version drift, no "which file is current?"</p>
+      </article>
+    </div>
+
+    <section class="features-detail">
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="eyebrow">Sketch without commitment</span>
+          <h2>Try ten layouts in the time it takes to draw one.</h2>
+          <p>Early design is about options, not precision. Move a wall, swap a room, test a different entrance — and keep the versions that work without cluttering your file.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="eyebrow">Test before you build</span>
+          <h2>See the room before the contractor does.</h2>
+          <p>A 3D walkthrough catches the awkward corner, the window that faces a wall, the hallway that feels tighter than the plan suggested. Fix it now, not during framing.</p>
+        </div>
+      </div>
+      <div class="feature-row">
+        <div class="feature-text">
+          <span class="eyebrow">Keep everyone aligned</span>
+          <h2>One source of truth for the whole project.</h2>
+          <p>Contractors, architects, and partners work from the same live plan. Comments land on the model, not in a thread. Decisions stay visible.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Start with a blank plan.</h2>
+      <p>No templates to undo. No defaults to fight. Just a grid, your ideas, and a clear path to a layout you can stand behind.</p>
+      <div><a class="button" href="/contact">Build your first plan ↗</a></div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .features-detail {
+    margin-top: 80px;
+  }
+  .feature-row {
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+  .feature-row:first-child {
+    border-top: none;
+  }
+  .feature-text h2 {
+    margin: 16px 0 20px;
+  }
+  .cta-section {
+    margin-top: 80px;
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+  }
+  .cta-section h2 {
+    margin-bottom: 20px;
+  }
+  .cta-section .button {
+    margin-top: 28px;
+  }
+</style>
