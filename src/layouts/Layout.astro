@@ -1,7 +1,7 @@
 ---
 import '../style/base.css';
 
-const { title = 'House Designer' } = Astro.props;
+const { title = 'Homely' } = Astro.props;
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -17,8 +17,8 @@ const links = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="A calmer way to imagine, plan, and share a home." />
-    <title>{title} · House Designer</title>
+    <meta name="description" content="Homely is a home design app: sketch a real floor plan, step into a live 3D view, then queue a photoreal render." />
+    <title>{title} · Homely</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D655186TKF"></script>
     <script>
@@ -30,9 +30,9 @@ const links = [
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="House Designer home">
-        <span class="brand-mark">HD</span>
-        <span>House Designer</span>
+      <a class="brand" href="/" aria-label="Homely home">
+        <span class="brand-mark">H</span>
+        <span>Homely</span>
       </a>
       <nav aria-label="Main navigation">
         {links.map((link) => <a href={link.href}>{link.label}</a>)}
@@ -41,8 +41,8 @@ const links = [
     </header>
     <main><slot /></main>
     <footer class="site-footer">
-      <span>© {new Date().getFullYear()} House Designer</span>
-      <span>Made for rooms with a point of view.</span>
+      <span>© {new Date().getFullYear()} Homely</span>
+      <span>Plan it, walk it, render it.</span>
     </footer>
   </body>
 </html>
