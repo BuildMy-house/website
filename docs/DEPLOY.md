@@ -24,7 +24,7 @@ Before any of this can run for real, complete these steps:
 
 ### 3. Add repository secrets
 
-Go to `https://github.com/NaharEmet/homely-site/settings/secrets/actions` and add:
+Go to `https://github.com/BuildMy-house/website/settings/secrets/actions` and add:
 
 | Secret name | Value |
 |---|---|
@@ -33,7 +33,7 @@ Go to `https://github.com/NaharEmet/homely-site/settings/secrets/actions` and ad
 
 ### 4. Enable the `production` GitHub Environment
 
-Go to `https://github.com/NaharEmet/homely-site/settings/environments`:
+Go to `https://github.com/BuildMy-house/website/settings/environments`:
 
 1. Click **New environment**, name it `production`.
 2. Under **Protection rules**, check **Required reviewers** and add yourself.

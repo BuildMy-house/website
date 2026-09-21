@@ -1,7 +1,15 @@
 ---
 import '../style/base.css';
 
-const { title = 'Homely' } = Astro.props;
+const {
+  title = 'House Designer — 3D Home Design, No Download or Signup',
+  description = 'Draw your floor plan and see it in 3D right in your browser — no download, no account, no design experience needed. Start free.',
+  image = '/screenshots/v2-02-app-room-split.png',
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(image, Astro.site);
+
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
@@ -17,8 +25,22 @@ const links = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Homely is a home design app: sketch a real floor plan, step into a live 3D view, then queue a photoreal render." />
-    <title>{title} · Homely</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="House Designer" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D655186TKF"></script>
     <script>
@@ -30,19 +52,19 @@ const links = [
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Homely home">
+      <a class="brand" href="/" aria-label="House Designer home">
         <span class="brand-mark">H</span>
-        <span>Homely</span>
+        <span>House Designer</span>
       </a>
       <nav aria-label="Main navigation">
         {links.map((link) => <a href={link.href}>{link.label}</a>)}
       </nav>
-      <a class="header-cta" href="https://app.buildmy.house">Start designing <span>↗</span></a>
+      <a class="header-cta" href="https://app.buildmy.house">Start designing — it's free <span>↗</span></a>
     </header>
     <main><slot /></main>
     <footer class="site-footer">
-      <span>© {new Date().getFullYear()} Homely</span>
-      <span>Plan it, walk it, render it.</span>
+      <span>© {new Date().getFullYear()} House Designer · buildmy.house</span>
+      <span>Free to design — no credit card required.</span>
     </footer>
   </body>
 </html>

@@ -1,4 +1,4 @@
-# Homely Writing Guidelines
+# House Designer Writing Guidelines
 
 Write for one audience and one action at a time. Lead with the user's problem,
 the concrete outcome, and evidence that supports the claim.

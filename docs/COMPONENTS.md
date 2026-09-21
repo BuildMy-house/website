@@ -1,4 +1,4 @@
-# Homely Component Guide
+# House Designer Component Guide
 
 Shared components must document their purpose, supported variants, states,
 responsive behavior, and accessibility requirements.

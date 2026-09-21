@@ -1,44 +1,60 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Design with intention">
+<Layout>
   <section class="hero">
-    <span class="eyebrow">A home design app for people planning their own place</span>
-    <h1>Draw the plan. <em>Walk the room.</em> Render it real.</h1>
+    <span class="eyebrow">House Designer — free, browser-based, no signup</span>
+    <h1>Design your dream home — <em>no download, no signup.</em></h1>
     <div class="hero-copy">
-      <p>Homely is a home design app for homeowners and DIY renovators, not a professional CAD tool. Sketch walls, rooms, doors, and windows on an accurate 2D plan, flip to a live 3D view of the exact same model, and queue a photorealistic render when you want to see it the way it will really look.</p>
-      <div><a class="button" href="https://app.buildmy.house">Start designing your home ↗</a></div>
+      <div class="hero-text">
+        <p>Draw your floor plan, furnish it, and see it in 3D — start designing right now, free, with nothing to install and no account required.</p>
+        <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+      </div>
+      <figure class="hero-visual">
+        <img
+          src="/screenshots/v2-02-app-room-split.png"
+          alt="House Designer split view showing a real room's 2D floor plan on the left and the matching live 3D view on the right"
+          width="1600"
+          height="1000"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
     </div>
-    <div class="plan-mark" aria-hidden="true"><span class="plan-mark-dot"></span></div>
-  </section>
-  <section class="cards" aria-label="Product highlights">
-    <article class="card"><span class="number">01 / PLAN</span><h3>Sketch a real floor plan</h3><p>Draw walls, rooms, doors, and windows on a grid that keeps every measurement honest as you edit.</p></article>
-    <article class="card"><span class="number">02 / 3D</span><h3>Step inside instantly</h3><p>Flip to a live 3D view of the same model, or split the screen and watch plan and 3D update together.</p></article>
-    <article class="card"><span class="number">03 / RENDER</span><h3>Get a photoreal render</h3><p>Queue a path-traced render of your design — a finished image, not just an in-app preview.</p></article>
   </section>
 
-  <section class="proof" aria-label="Screenshots of the app">
-    <span class="eyebrow">The actual app, not a mockup</span>
+  <section class="proof" aria-label="Real design examples from House Designer">
+    <span class="eyebrow">Real design examples, not mockups</span>
     <h2>Here's what's really on screen.</h2>
-    <p>Homely is still in late prototype — some of this UI will keep changing — but every screenshot below is a real capture of the working app, not a concept render.</p>
-
-    <figure class="proof-main">
-      <img
-        src="/screenshots/v2-02-app-room-split.png"
-        alt="Homely's split view showing a real room's 2D floor plan on the left and the matching live 3D view on the right"
-        width="1600"
-        height="1000"
-        loading="lazy"
-        decoding="async"
-      />
-      <figcaption>Plan and 3D, side by side, always in sync — a real room from the app.</figcaption>
-    </figure>
+    <p>House Designer is still in active development — some of this UI will keep changing — but every screenshot below is a real capture of the working app, not a concept render.</p>
 
     <div class="proof-grid">
       <figure>
         <img
+          src="/screenshots/v2-01-app-empty-split.png"
+          alt="Empty split view in House Designer, ready to start drawing a floor plan"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>A blank canvas — start drawing immediately, no setup.</figcaption>
+      </figure>
+      <figure>
+        <img
+          src="/screenshots/v2-03-app-plan-view.png"
+          alt="2D floor plan view in House Designer, showing walls, rooms, and openings"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>The plan view on its own.</figcaption>
+      </figure>
+      <figure>
+        <img
           src="/screenshots/v2-04-app-3d-view.png"
-          alt="Live 3D view of a room design, full screen, in the Homely app"
+          alt="Live 3D view of a room design, full screen, in House Designer"
           width="1600"
           height="1000"
           loading="lazy"
@@ -49,7 +65,7 @@ import Layout from '../layouts/Layout.astro';
       <figure>
         <img
           src="/screenshots/v2-05-app-catalog-panel.png"
-          alt="Furniture catalog panel in the Homely app, showing items available to place in a room"
+          alt="Furniture catalog panel in House Designer, showing items available to place in a room"
           width="1600"
           height="1000"
           loading="lazy"
@@ -57,22 +73,36 @@ import Layout from '../layouts/Layout.astro';
         />
         <figcaption>The furniture catalog for filling out a room.</figcaption>
       </figure>
-      <figure>
-        <img
-          src="/screenshots/v2-03-app-plan-view.png"
-          alt="2D floor plan view in the Homely app, showing walls, rooms, and openings"
-          width="1600"
-          height="1000"
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption>The plan view on its own.</figcaption>
-      </figure>
     </div>
+  </section>
+
+  <section class="how-it-works" aria-label="How House Designer works">
+    <span class="eyebrow">How it works</span>
+    <h2>Draw the plan. Arrange the furniture. Walk through it in 3D.</h2>
+    <div class="cards">
+      <article class="card"><span class="number">01 / PLAN</span><h3>Draw the plan</h3><p>Sketch walls, rooms, doors, and windows on a grid that keeps every measurement honest as you edit.</p></article>
+      <article class="card"><span class="number">02 / FURNISH</span><h3>Arrange the furniture</h3><p>Place furniture from the catalog and lay out each room the way you'd actually live in it.</p></article>
+      <article class="card"><span class="number">03 / WALK</span><h3>Walk through it in 3D</h3><p>Flip to a live 3D view of the exact same model — no separate export, no waiting.</p></article>
+    </div>
+  </section>
+
+  <section class="renovation" aria-label="Renovation planning">
+    <span class="eyebrow">Renovating? Plan it first.</span>
+    <h2>See your renovation before you commit to it.</h2>
+    <p>Sketch the new layout, move the walls that are actually moving, and see the result in 3D before a single thing changes in the real room.</p>
   </section>
 </Layout>
 
 <style>
+  .hero-copy {
+    align-items: center;
+  }
+  .hero-visual img {
+    border: 1px solid var(--line);
+    display: block;
+    height: auto;
+    width: 100%;
+  }
   .proof {
     border-top: 1px solid var(--line);
     margin-top: 90px;
@@ -81,25 +111,10 @@ import Layout from '../layouts/Layout.astro';
   .proof h2 {
     margin: 16px 0 20px;
   }
-  .proof-main {
-    margin: 50px 0 0;
-  }
-  .proof-main img {
-    border: 1px solid var(--line);
-    display: block;
-    height: auto;
-    width: 100%;
-  }
-  .proof-main figcaption {
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    font-size: .75rem;
-    margin-top: 14px;
-  }
   .proof-grid {
     display: grid;
     gap: 1px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 40px;
   }
   .proof-grid figure {
@@ -117,7 +132,36 @@ import Layout from '../layouts/Layout.astro';
     font-size: .7rem;
     margin-top: 10px;
   }
+  .how-it-works {
+    border-top: 1px solid var(--line);
+    margin-top: 90px;
+    padding-top: 70px;
+  }
+  .how-it-works h2 {
+    margin: 16px 0 20px;
+    max-width: 800px;
+  }
+  .how-it-works .cards {
+    margin-top: 50px;
+  }
+  .renovation {
+    border-top: 1px solid var(--line);
+    margin-top: 90px;
+    padding: 70px 0 90px;
+  }
+  .renovation h2 {
+    margin: 16px 0 20px;
+    max-width: 800px;
+  }
+  @media (max-width: 900px) {
+    .proof-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   @media (max-width: 700px) {
+    .hero-copy {
+      grid-template-columns: 1fr;
+    }
     .proof-grid {
       grid-template-columns: 1fr;
     }

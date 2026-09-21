@@ -1,6 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Contact">
-  <section class="page"><span class="eyebrow">Say hello</span><h1>Have a room in mind?</h1><p>Tell us what you are making, what is getting in the way, or simply what you want to see next.</p><a class="button alt" href="mailto:hello@buildmy.house">hello@buildmy.house ↗</a></section>
+<Layout
+  title="Contact House Designer"
+  description="Questions about House Designer? Email us — or skip the wait and start designing free right now, no signup required."
+>
+  <section class="page">
+    <span class="eyebrow">Say hello</span>
+    <h1>Have a room in mind?</h1>
+    <p>Tell us what you are making, what is getting in the way, or simply what you want to see next. Or skip the questions entirely and just start drawing — it's free and there's nothing to sign up for.</p>
+    <div class="contact-ctas">
+      <a class="button alt" href="mailto:hello@buildmy.house">hello@buildmy.house ↗</a>
+      <a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .contact-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+</style>

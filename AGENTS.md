@@ -1,4 +1,4 @@
-# Homely Site Agent Guide
+# House Designer Site Agent Guide
 
 ## Authority and workflow
 

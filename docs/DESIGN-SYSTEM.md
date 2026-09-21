@@ -1,4 +1,4 @@
-# Homely Design System
+# House Designer Design System
 
 This is the source of truth for the site's visual language. Record approved
 colors, typography, spacing, layout rules, motion, and accessibility decisions

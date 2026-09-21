@@ -1,4 +1,4 @@
-# Homely Component Library
+# House Designer Component Library
 
 Use existing components before creating new ones. A shared component must
 document its purpose, API, states, responsive behavior, and accessibility
