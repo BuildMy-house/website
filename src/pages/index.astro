@@ -16,4 +16,110 @@ import Layout from '../layouts/Layout.astro';
     <article class="card"><span class="number">02 / 3D</span><h3>Step inside instantly</h3><p>Flip to a live 3D view of the same model, or split the screen and watch plan and 3D update together.</p></article>
     <article class="card"><span class="number">03 / RENDER</span><h3>Get a photoreal render</h3><p>Queue a path-traced render of your design — a finished image, not just an in-app preview.</p></article>
   </section>
+
+  <section class="proof" aria-label="Screenshots of the app">
+    <span class="eyebrow">The actual app, not a mockup</span>
+    <h2>Here's what's really on screen.</h2>
+    <p>Homely is still in late prototype — some of this UI will keep changing — but every screenshot below is a real capture of the working app, not a concept render.</p>
+
+    <figure class="proof-main">
+      <img
+        src="/screenshots/v2-02-app-room-split.png"
+        alt="Homely's split view showing a real room's 2D floor plan on the left and the matching live 3D view on the right"
+        width="1600"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>Plan and 3D, side by side, always in sync — a real room from the app.</figcaption>
+    </figure>
+
+    <div class="proof-grid">
+      <figure>
+        <img
+          src="/screenshots/v2-04-app-3d-view.png"
+          alt="Live 3D view of a room design, full screen, in the Homely app"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>The 3D view on its own.</figcaption>
+      </figure>
+      <figure>
+        <img
+          src="/screenshots/v2-05-app-catalog-panel.png"
+          alt="Furniture catalog panel in the Homely app, showing items available to place in a room"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>The furniture catalog for filling out a room.</figcaption>
+      </figure>
+      <figure>
+        <img
+          src="/screenshots/v2-03-app-plan-view.png"
+          alt="2D floor plan view in the Homely app, showing walls, rooms, and openings"
+          width="1600"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>The plan view on its own.</figcaption>
+      </figure>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .proof {
+    border-top: 1px solid var(--line);
+    margin-top: 90px;
+    padding-top: 70px;
+  }
+  .proof h2 {
+    margin: 16px 0 20px;
+  }
+  .proof-main {
+    margin: 50px 0 0;
+  }
+  .proof-main img {
+    border: 1px solid var(--line);
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .proof-main figcaption {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    margin-top: 14px;
+  }
+  .proof-grid {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 40px;
+  }
+  .proof-grid figure {
+    margin: -1px 0 0 -1px;
+  }
+  .proof-grid img {
+    border: 1px solid var(--line);
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .proof-grid figcaption {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    margin-top: 10px;
+  }
+  @media (max-width: 700px) {
+    .proof-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

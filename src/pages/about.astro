@@ -2,5 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="About">
-  <section class="page"><span class="eyebrow">About the project</span><h1>Rooms are stories in three dimensions.</h1><p>Homely is a focused home design app for people planning their own place — not professional architecture software with a learning curve. Draw an accurate plan, see it as a live 3D model, and get a photoreal render when you want to see it for real.</p></section>
+  <section class="page">
+    <span class="eyebrow">About the project</span>
+    <h1>Rooms are stories in three dimensions.</h1>
+    <p>Homely is a focused home design app for people planning their own place — not professional architecture software with a learning curve. Draw an accurate plan, see it as a live 3D model, and get a photoreal render when you want to see it for real.</p>
+    <figure class="about-shot">
+      <img
+        src="/screenshots/v2-04-app-3d-view.png"
+        alt="Live 3D view of a room design in the Homely app"
+        width="1600"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>A real screenshot of the app's 3D view — Homely is still in late prototype, so expect the interface to keep changing.</figcaption>
+    </figure>
+  </section>
 </Layout>
+
+<style>
+  .about-shot {
+    margin-top: 50px;
+    max-width: 720px;
+  }
+  .about-shot img {
+    border: 1px solid var(--line);
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .about-shot figcaption {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    margin-top: 14px;
+  }
+</style>
