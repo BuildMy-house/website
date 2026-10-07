@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { templates, dimensions, sqFt, bedBath, openUrl, type Template } from '../../lib/templates';
+
+export function getStaticPaths() {
+  return templates.map((template) => ({ params: { slug: template.id }, props: { template } }));
+}
+
+const { template: t } = Astro.props as { template: Template };
+const siteUrl = 'https://buildmy.house';
+const pageUrl = `${siteUrl}/templates/${t.id}/`;
+const imageUrl = `${siteUrl}/templates/${t.id}.svg`;
+const withBrand = `${t.name} (Free, Browser-Based) · House Designer`;
+const title = withBrand.length <= 70 ? withBrand : `${t.name} (Free, Browser-Based Template)`;
+const interior = t.rooms.filter((r) => !r.outdoor);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FloorPlan',
+    name: t.name,
+    description: t.description,
+    url: pageUrl,
+    layoutImage: imageUrl,
+    floorSize: { '@type': 'QuantitativeValue', value: t.areaM2, unitCode: 'MTK' },
+    numberOfRooms: interior.length,
+    numberOfBedrooms: t.bedrooms,
+    numberOfBathroomsTotal: t.bathrooms,
+    isPlanForApartment: { '@type': 'Apartment', name: t.name },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+      { '@type': 'ListItem', position: 2, name: 'Templates', item: `${siteUrl}/templates/` },
+      { '@type': 'ListItem', position: 3, name: t.name, item: pageUrl },
+    ],
+  },
+];
+---
+<Layout
+  title={title}
+  description={`${t.description} Open and edit it free in your browser with House Designer — no signup.`}
+  jsonLd={jsonLd}
+>
+  <section class="page">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/templates/">Templates</a> / <span>{t.category}</span></nav>
+    <span class="eyebrow">{t.category}</span>
+    <h1>{t.name}</h1>
+    <p>{t.description}</p>
+    <p><a class="button alt" href={openUrl(t.id)}>Open this plan ↗</a></p>
+
+    <figure class="plan">
+      <img src={`/templates/${t.id}.svg`} alt={`Floor plan drawing of the ${t.name}, showing walls, doors, windows and furniture`} width="1280" height="960" decoding="async" />
+      <figcaption>Drawing generated from the template file the app opens.</figcaption>
+    </figure>
+
+    <div class="detail">
+      <section>
+        <h2>At a glance</h2>
+        <dl>
+          <dt>Footprint</dt>
+          <dd>{dimensions(t.widthCm, t.depthCm)}, outside wall to outside wall</dd>
+          <dt>Floor area</dt>
+          <dd>{t.areaM2} m² ({sqFt(t.areaM2)} sq ft)</dd>
+          <dt>Layout</dt>
+          <dd>{bedBath(t)}</dd>
+          <dt>Furniture</dt>
+          <dd>{t.furnitureCount} pieces placed</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Rooms</h2>
+        <ul class="rooms">
+          {t.rooms.map((r) => (
+            <li>
+              <span>{r.name}{r.outdoor ? ' (outdoor)' : ''}</span>
+              <span>{(r.widthCm / 100).toFixed(1)} × {(r.depthCm / 100).toFixed(1)} m · {sqFt(r.areaM2)} sq ft</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section>
+        <h2>What's in it</h2>
+        <ul class="features">
+          {t.features.map((f) => <li>{f}</li>)}
+        </ul>
+      </section>
+    </div>
+
+    <section class="cta-section">
+      <h2>Make it yours.</h2>
+      <p>This plan opens in House Designer in your browser, free and with no signup. Move walls, resize rooms and swap furniture, then save it like any other plan.</p>
+      <div><a class="button" href={openUrl(t.id)}>Open this plan ↗</a> <a class="back" href="/templates/">All templates</a></div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .crumbs {
+    color: var(--muted);
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+  }
+  .crumbs a:hover,
+  .crumbs a:focus-visible {
+    color: var(--ink);
+  }
+  .plan {
+    margin: 48px 0;
+  }
+  .plan img {
+    background: #f7f5f0;
+    border: 1px solid var(--line);
+    display: block;
+    height: auto;
+    max-width: 960px;
+    width: 100%;
+  }
+  .plan figcaption {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    margin-top: 10px;
+  }
+  .detail {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .detail h2 {
+    font-size: 1.6rem;
+    letter-spacing: -.04em;
+  }
+  dt {
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    margin-top: 14px;
+    text-transform: uppercase;
+  }
+  dd {
+    margin: 4px 0 0;
+  }
+  .rooms,
+  .features {
+    list-style: none;
+    padding: 0;
+  }
+  .rooms li {
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+  .rooms li span:last-child {
+    color: var(--muted);
+    font-size: .85rem;
+  }
+  .features li {
+    border-top: 1px solid var(--line);
+    padding: 10px 0;
+  }
+  .cta-section {
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+    padding: 60px 0;
+  }
+  .cta-section h2 {
+    margin-bottom: 20px;
+  }
+  .cta-section .back {
+    border-bottom: 1px solid var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    margin-left: 20px;
+  }
+  @media (max-width: 700px) {
+    .detail {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { templates, dimensions, sqFt, openUrl } from '../../lib/templates';
+
+const siteUrl = 'https://buildmy.house';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Free floor plan templates',
+  url: `${siteUrl}/templates/`,
+  description: 'Free, editable floor plan templates you can open in House Designer, a browser-based home design tool.',
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: templates.length,
+    itemListElement: templates.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${siteUrl}/templates/${t.id}/`,
+      name: t.name,
+    })),
+  },
+};
+---
+<Layout
+  jsonLd={[jsonLd]}
+  title="Free Floor Plan Templates — Browser-Based, No Signup · House Designer"
+  description={`${templates.length} free floor plan templates — apartments, houses, tiny homes and single rooms. Open one in House Designer, edit it in your browser, no signup.`}
+>
+  <section class="page">
+    <span class="eyebrow">Templates</span>
+    <h1>Start from a floor plan that already works.</h1>
+    <p>{templates.length} starter plans with walls, doors, windows and furniture already placed at real dimensions. Open one in House Designer and change anything — it runs in your browser, free, with no signup.</p>
+
+    <ul class="cards template-grid">
+      {templates.map((t) => (
+        <li class="card template-card">
+          <a class="thumb" href={`/templates/${t.id}/`} tabindex="-1" aria-hidden="true">
+            <img src={`/templates/${t.id}.svg`} alt="" width="640" height="480" loading="lazy" decoding="async" />
+          </a>
+          <span class="number">{t.category.toUpperCase()}</span>
+          <h3><a href={`/templates/${t.id}/`}>{t.name}</a></h3>
+          <p class="meta">{dimensions(t.widthCm, t.depthCm)} · {t.areaM2} m² ({sqFt(t.areaM2)} sq ft) floor area</p>
+          <a class="open" href={openUrl(t.id)}>Open in House Designer <span>↗</span></a>
+        </li>
+      ))}
+    </ul>
+
+    <section class="cta-section">
+      <h2>Don't see your layout?</h2>
+      <p>Every template is a normal House Designer plan, so you can resize rooms, move walls and swap furniture — or start from a blank plan.</p>
+      <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .template-grid {
+    list-style: none;
+    padding: 0;
+  }
+  .template-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .thumb {
+    background: #f7f5f0;
+    border: 1px solid var(--line);
+    display: block;
+    margin-bottom: 18px;
+  }
+  .thumb img {
+    aspect-ratio: 4 / 3;
+    display: block;
+    height: auto;
+    object-fit: contain;
+    width: 100%;
+  }
+  .template-card h3 a:hover,
+  .template-card h3 a:focus-visible {
+    text-decoration: underline;
+  }
+  .meta {
+    font-size: .85rem;
+    margin-bottom: 18px;
+  }
+  .open {
+    border-bottom: 1px solid var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    margin-top: auto;
+    padding-bottom: 3px;
+    align-self: flex-start;
+  }
+  .open span {
+    color: var(--blue);
+  }
+  .cta-section {
+    border-top: 1px solid var(--line);
+    margin-top: 80px;
+    padding: 60px 0;
+  }
+  .cta-section h2 {
+    margin-bottom: 20px;
+  }
+  .cta-section .button {
+    margin-top: 28px;
+  }
+</style>

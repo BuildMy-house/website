@@ -5,6 +5,7 @@ const {
   title = 'House Designer — Free Browser-Based 3D Home Design Tool',
   description = 'Browser-based home design: draw your floor plan and see it in 3D right in your browser — no download, no account, no design experience needed. Start free.',
   image = '/og-card.png',
+  jsonLd = [],
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
@@ -14,6 +15,7 @@ const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/features', label: 'Features' },
+  { href: '/templates', label: 'Templates' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/docs', label: 'Docs' },
   { href: '/contact', label: 'Contact' },
@@ -43,6 +45,8 @@ const links = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+
+    {jsonLd.map((block: object) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D655186TKF"></script>
