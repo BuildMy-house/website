@@ -3,7 +3,57 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Docs · House Designer"
-  description="How House Designer works: start a plan, add your rooms, switch to 3D, and queue a render — free, in your browser, no signup."
+  description="House Designer quickstart: draw a plan, furnish it, and walk through it in 3D. Toolbar tools and export options explained — free, in your browser, no signup."
 >
-  <section class="page"><span class="eyebrow">Documentation</span><h1>Less searching. More making.</h1><p>Start with a plan, add your rooms, switch to 3D whenever you want to check the result, and queue a render when you're ready for a finished image. The full documentation will live here as the product takes shape.</p><a class="button" href="/contact">Ask a question ↗</a></section>
+  <section class="page docs">
+    <span class="eyebrow">Documentation</span>
+    <h1>Quickstart</h1>
+    <p>House Designer runs in your browser — no download, no account. Open <a class="link" href="https://app.buildmy.house">app.buildmy.house</a> and follow three steps.</p>
+
+    <div class="cards">
+      <article class="card"><span class="number">01 / PLAN</span><h3>Draw the plan</h3><p>Pick <strong>Wall</strong> in the toolbar and click to lay out your walls. Double-click to finish a run; press Esc to stop.</p></article>
+      <article class="card"><span class="number">02 / FURNISH</span><h3>Arrange the furniture</h3><p>Open <strong>Furniture</strong>, click a piece in the catalog, then click the plan to place it.</p></article>
+      <article class="card"><span class="number">03 / WALK</span><h3>Walk through it in 3D</h3><p>Switch the view to <strong>3D</strong> — or leave it on <strong>Split</strong> to see plan and 3D side by side.</p></article>
+    </div>
+
+    <h2>Toolbar tools</h2>
+    <dl>
+      <dt>Select <kbd>V</kbd></dt>
+      <dd>Click a wall, room, or furniture item to select it and edit its properties in the side panel.</dd>
+      <dt>Wall <kbd>W</kbd></dt>
+      <dd>Draw walls on the plan. Measurements stay editable as you go.</dd>
+      <dt>Dim</dt>
+      <dd>The dimension tool: add dimension lines to the plan to mark a measurement.</dd>
+      <dt>Text</dt>
+      <dd>The text tool: add a text label to the plan.</dd>
+      <dt>Furniture <kbd>F</kbd></dt>
+      <dd>Opens the furniture catalog. Pick a piece, then click the plan to place it. Press Esc to cancel placing.</dd>
+    </dl>
+    <p>Undo and Redo sit next to the tools (<kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd>). The <strong>Split</strong>, <strong>Plan</strong> and <strong>3D</strong> buttons switch the view.</p>
+
+    <h2>Exporting</h2>
+    <p>Everything under the <strong>File</strong> menu:</p>
+    <dl>
+      <dt>Export Plan as PNG…</dt>
+      <dd>Saves the floor plan as an image.</dd>
+      <dt>Export 3D View as PNG…</dt>
+      <dd>Saves the current 3D view as an image.</dd>
+      <dt>Export Scene for LuxCore Render…</dt>
+      <dd>Saves your scene as a file for rendering with LuxCore.</dd>
+      <dt>Print Plan…</dt>
+      <dd>Opens your browser's print dialog for the plan.</dd>
+    </dl>
+    <p>Use <strong>File → Save</strong> and <strong>Open</strong> to keep a project as a file on your computer.</p>
+
+    <p><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a> &nbsp; <a class="button alt" href="/contact">Ask a question</a></p>
+  </section>
 </Layout>
+
+<style>
+  .docs h2 { margin-top: 70px; }
+  .docs dl { max-width: 640px; }
+  .docs dt { font-weight: 700; margin-top: 22px; }
+  .docs dd { color: var(--muted); line-height: 1.7; margin: 4px 0 0; }
+  .docs kbd { border: 1px solid var(--line); font-family: 'DM Mono', monospace; font-size: .7rem; font-weight: 400; margin-left: 6px; padding: 1px 6px; }
+  .docs .link { border-bottom: 1px solid var(--ink); }
+</style>
