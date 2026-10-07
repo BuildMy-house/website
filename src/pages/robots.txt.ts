@@ -4,8 +4,7 @@ export async function GET() {
   const txt = `User-agent: *
 Allow: /
 
-Sitemap: https://buildmy.house/sitemap.xml
-Sitemap: https://buildmy.house/diary/sitemap.xml
+Sitemap: https://buildmy.house/sitemap-index.xml
 `;
 
   return new Response(txt, {
