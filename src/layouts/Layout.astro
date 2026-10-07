@@ -2,9 +2,9 @@
 import '../style/base.css';
 
 const {
-  title = 'House Designer — 3D Home Design, No Download or Signup',
-  description = 'Draw your floor plan and see it in 3D right in your browser — no download, no account, no design experience needed. Start free.',
-  image = '/screenshots/v2-02-app-room-split.png',
+  title = 'House Designer — Free Browser-Based 3D Home Design Tool',
+  description = 'Browser-based home design: draw your floor plan and see it in 3D right in your browser — no download, no account, no design experience needed. Start free.',
+  image = '/og-card.png',
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
@@ -24,7 +24,7 @@ const links = [
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
@@ -35,6 +35,9 @@ const links = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="House Designer: floor plan and 3D view side by side in the browser" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
