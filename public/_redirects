@@ -1,1 +1,6 @@
 /sitemap.xml /sitemap-index.xml 301
+/diary /blog/ 301
+/diary/ /blog/ 301
+/diary/blog/:slug /blog/:slug/ 301
+/diary/blog/:slug/ /blog/:slug/ 301
+/diary/* /blog/ 301

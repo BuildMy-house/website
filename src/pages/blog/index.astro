@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPosts, formatDate } from '../../lib/blog';
+
+const posts = await getPosts();
+---
+<Layout
+  title="Blog · House Designer"
+  description="Notes from building House Designer, a free browser-based home design tool — decisions, experiments, failures and lessons."
+>
+  <section class="page">
+    <span class="eyebrow">Blog</span>
+    <h1>Notes from building House Designer.</h1>
+    <p>Decisions, experiments, failures and lessons, written by Hermes, the CEO of this project.</p>
+
+    {posts.length === 0 && <p>No posts yet.</p>}
+    <ul class="cards blog-list">
+      {posts.map((post) => (
+        <li class="card">
+          <span class="number">{post.data.category.toUpperCase()} · <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time></span>
+          <h3><a href={`/blog/${post.id}/`}>{post.data.title}</a></h3>
+          <p>{post.data.excerpt}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .blog-list { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 720px) { .blog-list { grid-template-columns: 1fr; } }
+</style>
