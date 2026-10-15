@@ -3,12 +3,166 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Pricing · House Designer"
-  description="House Designer is free to design with — no credit card, no signup. Start drawing your floor plan and see it in 3D right now."
+  description="House Designer is free to design — plan, 3D, and templates, no signup and no card. Photoreal renders are optional credit packs: $5 for 5, $15 for 20, no subscription, credits never expire."
 >
   <section class="page">
-    <span class="eyebrow">Simple by design</span>
-    <h1>Free to design. No credit card, no signup.</h1>
-    <p>Open House Designer and start drawing your floor plan right now — no account to create, nothing to install, nothing to pay for. If that changes for any part of the product, we'll say so here plainly, before it happens.</p>
-    <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+    <span class="eyebrow">Pricing</span>
+    <h1>Design free. Render when it matters.</h1>
+    <p>Everything you need to design a floor plan is free forever — no signup, no credit card, nothing to cancel. The only thing that costs money is the optional photoreal render, and you buy those as one-off credit packs instead of a subscription.</p>
+
+    <div class="cards">
+      <article class="card">
+        <span class="number">FREE FOREVER</span>
+        <h3>Design, with no bill attached</h3>
+        <p>Draw the plan, step into the live 3D view, try the templates — every design feature stays open, with no account and no card on file. Design is never gated behind a payment.</p>
+        <p class="card-cta"><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></p>
+      </article>
+      <article class="card">
+        <span class="number">$5 · 5 RENDERS</span>
+        <h3>Starter render pack</h3>
+        <p>Five photoreal, path-traced renders of your design for $5 — $1.00 an image. Pay once, use them whenever you want: the credits never expire.</p>
+        <p class="card-cta"><a class="button alt" href="#waitlist">Join the waitlist ↗</a></p>
+      </article>
+      <article class="card">
+        <span class="number">$15 · 20 RENDERS</span>
+        <h3>Studio render pack</h3>
+        <p>Twenty renders for $15 — $0.75 an image, same credits that never expire. Buy it once when you need a batch of images, not every month.</p>
+        <p class="card-cta"><a class="button alt" href="#waitlist">Join the waitlist ↗</a></p>
+      </article>
+    </div>
+
+    <section class="pricing-detail">
+      <div class="pricing-row">
+        <div class="pricing-text">
+          <span class="eyebrow">The free half</span>
+          <h2>Designing is the product, not the trial.</h2>
+          <p>A pricing page that hides the editor behind a signup is selling access. This one isn't: the plan view, the live 3D view, and the templates are the product, and they cost nothing. No feature-limited tier to outgrow, no credit card before you have drawn a single wall.</p>
+        </div>
+        <div class="pricing-note">
+          <span class="note-label">Included, permanently</span>
+          <ul>
+            <li>Plan view — walls, doors, windows, rooms</li>
+            <li>Live 3D view and split screen</li>
+            <li>Templates and multi-level editing</li>
+            <li>No account, no card, no expiry</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pricing-row">
+        <div class="pricing-text">
+          <span class="eyebrow">The paid half</span>
+          <h2>Render credits, not a subscription.</h2>
+          <p>A render is the finished, path-traced image you queue when the live preview is not enough — for a mood board, a family vote, or the contractor. Those are the only thing you pay for, bought as a pack of credits you spend when you choose to.</p>
+          <p>Credits never expire, there is no monthly charge to remember, and unused ones stay on your account. Design keeps working whether you have credits or not.</p>
+        </div>
+        <div class="pricing-note">
+          <span class="note-label">Render packs</span>
+          <ul>
+            <li>$5 → 5 renders ($1.00 each)</li>
+            <li>$15 → 20 renders ($0.75 each)</li>
+            <li>Pay as you go — buy only what you need</li>
+            <li>Credits never expire</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pricing-row" id="waitlist">
+        <div class="pricing-text">
+          <span class="eyebrow">Right now</span>
+          <h2>Rendering opens from a waitlist first.</h2>
+          <p>Payments are not wired up yet — deliberately. We would rather open render credits to a waitlist, confirm rendering holds up under real use, and take card payments after that, than sell a pack that stutters. Add your address and we will write when your pack is ready to buy.</p>
+          <div class="waitlist-ctas">
+            <a class="button alt" href="mailto:hello@buildmy.house?subject=Render%20credits%20waitlist">Join the waitlist ↗</a>
+            <a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a>
+          </div>
+        </div>
+        <div class="pricing-note">
+          <span class="note-label">Not charged for</span>
+          <ul>
+            <li>Designing — free forever</li>
+            <li>Waiting on the waitlist</li>
+            <li>Expired credits — they don't expire</li>
+            <li>A subscription — there isn't one</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>No card, no signup, no tier to pick.</h2>
+      <p>Open the editor and draw. Render credits are the only thing with a price on this page, and they can wait until you want them.</p>
+      <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+    </section>
   </section>
 </Layout>
+
+<style>
+  .card-cta {
+    margin-top: 20px;
+  }
+  .pricing-detail {
+    margin-top: 80px;
+  }
+  .pricing-row {
+    display: grid;
+    gap: 48px;
+    grid-template-columns: 1.4fr 1fr;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+  .pricing-row:first-child {
+    border-top: none;
+  }
+  .pricing-text h2 {
+    margin: 16px 0 20px;
+  }
+  .pricing-text p + p {
+    margin-top: 20px;
+  }
+  .pricing-note {
+    border: 1px solid var(--line);
+    padding: 28px;
+    align-self: start;
+  }
+  .note-label {
+    color: var(--blue);
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .pricing-note ul {
+    list-style: none;
+    margin-top: 18px;
+  }
+  .pricing-note li {
+    border-top: 1px solid var(--line);
+    font-size: .95rem;
+    padding: 14px 0;
+  }
+  .waitlist-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .cta-section {
+    margin-top: 80px;
+    padding: 60px 0;
+    border-top: 1px solid var(--line);
+  }
+  .cta-section h2 {
+    margin-bottom: 20px;
+  }
+  .cta-section .button {
+    margin-top: 28px;
+  }
+  @media (max-width: 700px) {
+    .pricing-row {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>
