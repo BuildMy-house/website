@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Page not found · House Designer"
+  description="The page you were looking for does not exist. Head back to House Designer and keep designing."
+>
+  <meta name="robots" content="noindex" slot="head" />
+  <section class="page">
+    <span class="eyebrow">Error 404</span>
+    <h1>This room doesn't exist.</h1>
+    <p>The page you were looking for isn't here. It may have moved, or the address may be mistyped.</p>
+    <div class="not-found-ctas">
+      <a class="button" href="/">Back to the homepage</a>
+      <a class="button alt" href="https://app.buildmy.house">Start designing — it's free ↗</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+</style>

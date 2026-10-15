@@ -49,6 +49,8 @@ const links = [
 
     {jsonLd.map((block: object) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
+    <slot name="head" />
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-D655186TKF"></script>
     <script>
@@ -72,7 +74,7 @@ const links = [
     <main><slot /></main>
     <footer class="site-footer">
       <span>© {new Date().getFullYear()} House Designer · buildmy.house</span>
-      <nav aria-label="Footer navigation"><a href="/blog/">Blog</a></nav>
+      <nav aria-label="Footer navigation"><a href="/blog/">Blog</a> <a href="/privacy/">Privacy</a> <a href="/terms/">Terms</a></nav>
       <span>Free to design — no credit card required.</span>
     </footer>
   </body>
