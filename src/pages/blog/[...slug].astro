@@ -1,0 +1,42 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getPosts, formatDate } from '../../lib/blog';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, date, category, tags, excerpt } = post.data;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: excerpt,
+  datePublished: date.toISOString(),
+  author: { '@type': 'Organization', name: 'House Designer' },
+  mainEntityOfPage: `https://buildmy.house/blog/${post.id}/`,
+};
+---
+<Layout title={`${title} · House Designer Blog`} description={excerpt} jsonLd={[jsonLd]}>
+  <article class="page post">
+    <span class="eyebrow">{category} · <time datetime={date.toISOString()}>{formatDate(date)}</time></span>
+    <h1>{title}</h1>
+    <div class="post-body"><Content /></div>
+    <p class="tags">{tags.map((tag) => <span>{tag}</span>)}</p>
+    <p><a href="/blog/">← All posts</a></p>
+  </article>
+</Layout>
+
+<style>
+  .post h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+  .post-body { line-height: 1.75; max-width: 720px; }
+  .post-body :global(h2) { margin: 2rem 0 1rem; }
+  .post-body :global(a) { color: var(--blue); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 40px; }
+  .tags span { border: 1px solid var(--line); color: var(--muted); font-family: 'DM Mono', monospace; font-size: .7rem; padding: 3px 10px; }
+</style>

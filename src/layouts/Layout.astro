@@ -18,6 +18,7 @@ const links = [
   { href: '/templates', label: 'Templates' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/docs', label: 'Docs' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 ---
@@ -71,6 +72,7 @@ const links = [
     <main><slot /></main>
     <footer class="site-footer">
       <span>© {new Date().getFullYear()} House Designer · buildmy.house</span>
+      <nav aria-label="Footer navigation"><a href="/blog/">Blog</a></nav>
       <span>Free to design — no credit card required.</span>
     </footer>
   </body>
