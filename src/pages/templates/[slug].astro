@@ -10,8 +10,9 @@ const { template: t } = Astro.props as { template: Template };
 const siteUrl = 'https://buildmy.house';
 const pageUrl = `${siteUrl}/templates/${t.id}/`;
 const imageUrl = `${siteUrl}/templates/${t.id}.svg`;
-const withBrand = `${t.name} (Free, Browser-Based) · House Designer`;
-const title = withBrand.length <= 70 ? withBrand : `${t.name} (Free, Browser-Based Template)`;
+const tool = t.category === 'Single rooms' ? 'Room Planner' : 'Floor Plan Creator';
+const withBrand = `${t.name} — Free Online ${tool} · House Designer`;
+const title = withBrand.length <= 70 ? withBrand : `${t.name} — Free ${tool}`;
 const interior = t.rooms.filter((r) => !r.outdoor);
 
 const jsonLd = [
