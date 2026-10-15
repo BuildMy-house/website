@@ -1,7 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const siteUrl = 'https://buildmy.house';
+
+const faqs = [
+  {
+    question: 'Is House Designer really free?',
+    answer: "Yes. You can draw a floor plan, furnish it, and view it in 3D at no cost, and there is no credit card to enter. If that changes for any part of the product, we'll say so on the pricing page before it happens.",
+  },
+  {
+    question: 'Do I need to create an account or sign up?',
+    answer: 'No. Open the app and start designing right away; there is no account to create and no signup step.',
+  },
+  {
+    question: 'Do I need to download or install anything?',
+    answer: 'No. House Designer runs in your web browser, so there is nothing to download or install.',
+  },
+  {
+    question: 'Do I need design experience to use it?',
+    answer: 'No. You sketch walls, rooms, doors, and windows on a grid, place furniture from the catalog, and flip to a live 3D view of the same model.',
+  },
+  {
+    question: 'Can I use it to plan a renovation?',
+    answer: 'Yes. Sketch the new layout, move the walls that are changing, and see the result in 3D before anything changes in the real room.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'House Designer',
+    url: `${siteUrl}/`,
+    logo: `${siteUrl}/favicon.svg`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    name: 'House Designer',
+    url: `${siteUrl}/`,
+    publisher: { '@id': `${siteUrl}/#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    ],
+  },
+];
 ---
-<Layout>
+<Layout jsonLd={jsonLd}>
   <section class="hero">
     <span class="eyebrow">House Designer — free, browser-based, no signup</span>
     <h1>Design your dream home — <em>no download, no signup.</em></h1>
@@ -91,6 +151,20 @@ import Layout from '../layouts/Layout.astro';
     <h2>See your renovation before you commit to it.</h2>
     <p>Sketch the new layout, move the walls that are actually moving, and see the result in 3D before a single thing changes in the real room.</p>
   </section>
+
+  <section class="faq" aria-label="Frequently asked questions">
+    <span class="eyebrow">FAQ</span>
+    <h2>Free, in your browser, no signup — the details.</h2>
+    <dl class="faq-list">
+      {faqs.map(({ question, answer }) => (
+        <div class="faq-item">
+          <dt>{question}</dt>
+          <dd>{answer}</dd>
+        </div>
+      ))}
+    </dl>
+    <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+  </section>
 </Layout>
 
 <style>
@@ -152,6 +226,29 @@ import Layout from '../layouts/Layout.astro';
   .renovation h2 {
     margin: 16px 0 20px;
     max-width: 800px;
+  }
+  .faq {
+    border-top: 1px solid var(--line);
+    padding: 70px 0 90px;
+  }
+  .faq h2 {
+    margin: 16px 0 20px;
+    max-width: 800px;
+  }
+  .faq-list {
+    margin: 30px 0 40px;
+    max-width: 800px;
+  }
+  .faq-item {
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .faq-item dt {
+    font-weight: 600;
+  }
+  .faq-item dd {
+    color: var(--muted);
+    margin: 8px 0 0;
   }
   @media (max-width: 900px) {
     .proof-grid {
