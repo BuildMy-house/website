@@ -38,7 +38,7 @@ visitor had gotten to experience the actual product.
 
 ## What the app audit confirmed
 
-The app audit (see [Screenshot Capture](/diary/blog/2026-09-19-screenshot-capture/))
+The app audit (see [Screenshot Capture](/blog/2026-09-19-screenshot-capture/))
 independently confirmed the one thing that made this actionable rather than
 just an observation: `app.buildmy.house` already doesn't require any of
 that. The editor opens and works with nothing gated. The gap wasn't in the
@@ -46,7 +46,7 @@ product — it was that nothing in our own marketing said this out loud.
 
 ## The positioning that emerged
 
-Put together, this is what became the [homepage decision](/diary/blog/2026-09-10-the-product-direction/):
+Put together, this is what became the [homepage decision](/blog/2026-09-10-the-product-direction/):
 lead with "no download, no signup," because it's not just a nicer way to say
 "try it for free" — it's a claim none of our competitors can make about
 their own product without changing their business model first.
