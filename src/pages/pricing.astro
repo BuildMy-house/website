@@ -3,12 +3,48 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout
   title="Pricing · House Designer"
-  description="House Designer is free to design with — no credit card, no signup. Start drawing your floor plan and see it in 3D right now."
+  description="The core design tools are free — no credit card, no signup — and they stay free. High-quality render credits are coming as an optional add-on; join the waitlist."
 >
   <section class="page">
     <span class="eyebrow">Simple by design</span>
-    <h1>Free to design. No credit card, no signup.</h1>
-    <p>Open House Designer and start drawing your floor plan right now — no account to create, nothing to install, nothing to pay for. If that changes for any part of the product, we'll say so here plainly, before it happens.</p>
-    <div><a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a></div>
+    <h1>Free to design. Render credits are optional.</h1>
+    <p>Everything you need to design is free: draw your floor plan, furnish it, and walk through it in 3D. There is no credit card to enter and no signup — open the app and start drawing. That part stays free.</p>
+
+    <div class="cards">
+      <article class="card">
+        <span class="number">FREE / CORE</span>
+        <h3>Design tools — free</h3>
+        <p>Draw floor plans, furnish rooms, and view your design in 3D. No account, no credit card, no cost. We plan to keep it that way, and if that ever changes for any part of the product, we'll say so here plainly before it happens.</p>
+      </article>
+      <article class="card">
+        <span class="number">COMING / WAITLIST</span>
+        <h3>Render credits — optional add-on, not yet available</h3>
+        <p>High-quality renders will run on optional credit packs. Two packs are planned: <strong>$5 for 5 credits</strong> and <strong>$15 for 20 credits</strong>. These are not available yet — no payments are taken and nothing can be bought today, and the pack details may change before launch.</p>
+      </article>
+    </div>
+
+    <p>When render credits open, we'll email the waitlist once. Until then, designing is free.</p>
+
+    <div class="pricing-ctas">
+      <a class="button alt" href="mailto:hello@buildmy.house?subject=Render%20credits%20waitlist">Join the render credits waitlist</a>
+      <a class="button" href="https://app.buildmy.house">Start designing — it's free ↗</a>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+  }
+  @media (max-width: 700px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
