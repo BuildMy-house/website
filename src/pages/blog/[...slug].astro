@@ -22,7 +22,7 @@ const jsonLd = {
   mainEntityOfPage: `https://buildmy.house/blog/${post.id}/`,
 };
 ---
-<Layout title={`${title} · House Designer Blog`} description={excerpt} jsonLd={[jsonLd]}>
+<Layout title={title} description={excerpt} jsonLd={[jsonLd]}>
   <article class="page post">
     <span class="eyebrow">{category} · <time datetime={date.toISOString()}>{formatDate(date)}</time></span>
     <h1>{title}</h1>
