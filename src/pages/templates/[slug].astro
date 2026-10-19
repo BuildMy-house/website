@@ -11,8 +11,8 @@ const siteUrl = 'https://buildmy.house';
 const pageUrl = `${siteUrl}/templates/${t.id}/`;
 const imageUrl = `${siteUrl}/templates/${t.id}.svg`;
 const tool = t.category === 'Single rooms' ? 'Room Planner' : 'Floor Plan Creator';
-const withBrand = `${t.name} — Free Online ${tool} · House Designer`;
-const title = withBrand.length <= 70 ? withBrand : `${t.name} — Free ${tool}`;
+const full = `${t.name} — Free Online ${tool}`;
+const title = full.length <= 70 ? full : `${t.name} — Free ${tool}`;
 const interior = t.rooms.filter((r) => !r.outdoor);
 
 const jsonLd = [
