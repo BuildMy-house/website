@@ -1,6 +1,6 @@
 # Deployment
 
-The site is configured for server output with `@astrojs/cloudflare`.
+The site is static Astro output (`output: 'static'`). Redirects live in `public/_redirects`; `npm run check:redirects` (run after build) guards the retired `/diary/` -> `/blog/` 301s.
 
 ```sh
 npm install
